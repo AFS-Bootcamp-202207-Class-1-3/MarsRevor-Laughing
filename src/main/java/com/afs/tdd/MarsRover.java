@@ -19,6 +19,16 @@ public class MarsRover {
         this.location = new Location(0, 0, "N");
     }
 
+    public String batchCommand(List<String> instructions) {
+        for(String instruction: instructions){
+            receiveInstruction(instruction);
+        }
+        return getLocationReport();
+    }
+
+    public String getLocationReport(){
+        return String.format("location( %d, %d ), direction: %s",this.location.x,this.location.y,this.location.Direction);
+    }
 
     public Location receiveInstruction(String instruction) {
         switch (instruction) {
@@ -78,7 +88,4 @@ public class MarsRover {
     }
 
 
-    public String batchCommand(List<String> instructions) {
-        return null;
-    }
 }

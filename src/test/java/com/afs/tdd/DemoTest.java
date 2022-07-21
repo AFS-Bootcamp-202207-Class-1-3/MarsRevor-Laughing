@@ -178,6 +178,6 @@ class DemoTest {
         instructions.add("R");
         instructions.add("M");
         MarsRover marsRover = new MarsRover();
-        assertEquals(excepted, marsRover.batchCommand(instructions););
+        assertEquals(excepted, marsRover.batchCommand(instructions));
     }
 }
