@@ -7,7 +7,7 @@ public class MarsRover {
     private static final int[] dx = {0, 1, 0, -1};
     private static final int[] dy = {1, 0, -1, 0};
 
-    private static final String[] dStr = {"N", "E", "N", "W"};
+    private static final String[] dStr = {"N", "E", "S", "W"};
 
     public MarsRover(int x, int y, String direction) {
         this.location = new Location(x, y, direction);
