@@ -50,7 +50,7 @@ public class MarsRover {
     }
 
     public void turnLeft(){
-        this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+3)%4];
+        this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+dStr.length-1)%4];
     }
 
     public void turnRight(){
