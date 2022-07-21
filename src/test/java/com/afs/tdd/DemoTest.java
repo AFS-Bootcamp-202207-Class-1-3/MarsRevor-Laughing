@@ -2,6 +2,9 @@ package com.afs.tdd;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DemoTest {
@@ -161,5 +164,20 @@ class DemoTest {
         assertEquals(exceptedX, marsRover.getLocation().x);
         assertEquals(exceptedY, marsRover.getLocation().y);
         assertEquals(exceptedDirection, marsRover.getLocation().Direction);
+    }
+
+    @Test
+    void should_return_location_when_batchCommand_given_instruction(){
+        String excepted="location( 0, 2 ), direction: E";
+        List<String> instructions=new ArrayList<>();
+        instructions.add("M");
+        instructions.add("L");
+        instructions.add("M");
+        instructions.add("R");
+        instructions.add("M");
+        instructions.add("R");
+        instructions.add("M");
+        MarsRover marsRover = new MarsRover();
+        assertEquals(excepted, marsRover.batchCommand(instructions););
     }
 }

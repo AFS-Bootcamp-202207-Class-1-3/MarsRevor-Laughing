@@ -1,5 +1,7 @@
 package com.afs.tdd;
 
+import java.util.List;
+
 public class MarsRover {
 
     private Location location;
@@ -16,6 +18,7 @@ public class MarsRover {
     public MarsRover() {
         this.location = new Location(0, 0, "N");
     }
+
 
     public Location receiveInstruction(String instruction) {
         switch (instruction) {
@@ -72,5 +75,10 @@ public class MarsRover {
 
     public Location getLocation() {
         return location;
+    }
+
+
+    public String batchCommand(List<String> instructions) {
+        return null;
     }
 }
