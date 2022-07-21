@@ -8,7 +8,7 @@ class DemoTest {
     void should_return_location01N_when_given_M() {
         String excepted="location( x, y ), direction N";
         String instruction="M";
-
-        assertEquals(excepted,instruction);
+        Application app=new Application();
+        assertEquals(excepted,app.receiveInstruction(instruction));
     }
 }
