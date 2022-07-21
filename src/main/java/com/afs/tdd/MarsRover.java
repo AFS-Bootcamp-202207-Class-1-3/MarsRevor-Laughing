@@ -24,7 +24,10 @@ public class MarsRover {
             }break;
             case "L":{
                 this.turnLeft();
-            }
+            }break;
+            case "R":{
+                this.turnRight();
+            }break;
         }
 
         return this.location;
@@ -50,6 +53,9 @@ public class MarsRover {
         this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+3)%4];
     }
 
+    public void turnRight(){
+        this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+1)%4];
+    }
 
     public Location getLocation() {
         return location;
