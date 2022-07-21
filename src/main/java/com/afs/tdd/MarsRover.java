@@ -4,57 +4,70 @@ public class MarsRover {
 
     private Location location;
 
-    private static final int[] dx={0,1,0,-1};
-    private static final int[] dy={1,0,-1,0};
+    private static final int[] dx = {0, 1, 0, -1};
+    private static final int[] dy = {1, 0, -1, 0};
 
-    private static final String[] dStr={"N","E","N","W"};
+    private static final String[] dStr = {"N", "E", "N", "W"};
 
     public MarsRover(int x, int y, String direction) {
-       this.location=new Location(x,y,direction);
+        this.location = new Location(x, y, direction);
     }
 
     public MarsRover() {
-        this.location=new Location(0,0,"N");
+        this.location = new Location(0, 0, "N");
     }
 
-    public Location receiveInstruction(String instruction){
-        switch (instruction){
-            case "M":{
+    public Location receiveInstruction(String instruction) {
+        switch (instruction) {
+            case "M": {
                 this.Move();
-            }break;
-            case "L":{
+            }
+            break;
+            case "L": {
                 this.turnLeft();
-            }break;
-            case "R":{
+            }
+            break;
+            case "R": {
                 this.turnRight();
-            }break;
+            }
+            break;
         }
 
         return this.location;
     }
 
-    public int getDirectionIndex(String direction){
+    private int getDirectionIndex(String direction) {
         int result;
-        switch (direction){
-            case "N":result=0;break;
-            case "E":result=1;break;
-            case "S":result=2;break;
-            case "W":result=3;break;
-            default:result=-1;
+        switch (direction) {
+            case "N":
+                result = 0;
+                break;
+            case "E":
+                result = 1;
+                break;
+            case "S":
+                result = 2;
+                break;
+            case "W":
+                result = 3;
+                break;
+            default:
+                result = -1;
         }
         return result;
     }
-    public void Move(){
-        this.location.x+=dx[getDirectionIndex(this.location.Direction)];
-        this.location.y+=dy[getDirectionIndex(this.location.Direction)];
+
+    private void Move() {
+        this.location.x += dx[getDirectionIndex(this.location.Direction)];
+        this.location.y += dy[getDirectionIndex(this.location.Direction)];
     }
 
-    public void turnLeft(){
-        this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+dStr.length-1)%4];
+    private void turnLeft() {
+        this.location.Direction = dStr[(getDirectionIndex(this.location.Direction) + dStr.length - 1) % 4];
     }
 
-    public void turnRight(){
-        this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+1)%4];
+    private void turnRight() {
+        this.location.Direction = dStr[(getDirectionIndex(this.location.Direction) + 1) % 4];
     }
 
     public Location getLocation() {
