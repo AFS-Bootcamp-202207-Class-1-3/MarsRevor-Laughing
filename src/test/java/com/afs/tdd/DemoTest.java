@@ -5,10 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DemoTest {
     @Test
-    void should_return_location01N_when_given_M() {
-        String excepted="location( x, y ), direction N";
+    void should_return_0_1_N_when_given_0_0_N_M() {
+        int exceptedX=0;
+        int exceptedY=1;
+        String exceptedDirection="N";
         String instruction="M";
-        Application app=new Application();
-        assertEquals(excepted,app.receiveInstruction(instruction));
+        MarsRover marsRover =new MarsRover(0,0,"N");
+        marsRover.receiveInstruction(instruction);
+        assertEquals(exceptedX, marsRover.getX());
+        assertEquals(exceptedY, marsRover.getY());
+        assertEquals(exceptedDirection, marsRover.getDirection());
     }
+
+
 }
