@@ -12,10 +12,22 @@ class DemoTest {
         String instruction="M";
         MarsRover marsRover =new MarsRover(0,0,"N");
         marsRover.receiveInstruction(instruction);
-        assertEquals(exceptedX, marsRover.getX());
-        assertEquals(exceptedY, marsRover.getY());
-        assertEquals(exceptedDirection, marsRover.getDirection());
+        assertEquals(exceptedX, marsRover.getLocation().x);
+        assertEquals(exceptedY, marsRover.getLocation().y);
+        assertEquals(exceptedDirection, marsRover.getLocation().Direction);
     }
 
+    @Test
+    void should_return_0_0_W_when_given_0_0_N_L() {
+        int exceptedX=0;
+        int exceptedY=0;
+        String exceptedDirection="W";
+        String instruction="L";
+        MarsRover marsRover =new MarsRover(0,0,"N");
+        marsRover.receiveInstruction(instruction);
+        assertEquals(exceptedX, marsRover.getLocation().x);
+        assertEquals(exceptedY, marsRover.getLocation().y);
+        assertEquals(exceptedDirection, marsRover.getLocation().Direction);
+    }
 
 }

@@ -1,37 +1,35 @@
 package com.afs.tdd;
 
 public class MarsRover {
-    private int x=0;
-    private int y=0;
-    private String Direction="N";
+
+    private Location location;
 
     private static final int[] dx={0,1,0,-1};
     private static final int[] dy={1,0,-1,0};
 
+    private static final String[] dStr={"N","E","N","W"};
+
     public MarsRover(int x, int y, String direction) {
-        this.x = x;
-        this.y = y;
-        Direction = direction;
+       this.location=new Location(x,y,direction);
     }
 
-    public MarsRover() {}
+    public MarsRover() {
+        this.location=new Location(0,0,"N");
+    }
 
-    public String receiveInstruction(String instruction){
+    public Location receiveInstruction(String instruction){
         switch (instruction){
             case "M":{
                 this.Move();
             }break;
-            default:{
-                return "Unknown Instruction";
+            case "L":{
+                this.turnLeft();
             }
         }
 
-        return getLocation();
+        return this.location;
     }
 
-    public String getLocation(){
-        return String.format("location( %d, %d ), direction %s",this.x,this.y,this.Direction);
-    }
     public int getDirectionIndex(String direction){
         int result;
         switch (direction){
@@ -44,19 +42,15 @@ public class MarsRover {
         return result;
     }
     public void Move(){
-        this.x+=dx[getDirectionIndex(this.Direction)];
-        this.y+=dy[getDirectionIndex(this.Direction)];
+        this.location.x+=dx[getDirectionIndex(this.location.Direction)];
+        this.location.y+=dy[getDirectionIndex(this.location.Direction)];
     }
 
-    public int getX() {
-        return x;
+    public void turnLeft(){
+        this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+3)%4];
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public String getDirection() {
-        return Direction;
+    public Location getLocation() {
+        return location;
     }
 }
