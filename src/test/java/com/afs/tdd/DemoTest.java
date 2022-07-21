@@ -30,4 +30,17 @@ class DemoTest {
         assertEquals(exceptedDirection, marsRover.getLocation().Direction);
     }
 
+
+    @Test
+    void should_return_0_0_E_when_given_0_0_N_R() {
+        int exceptedX=0;
+        int exceptedY=0;
+        String exceptedDirection="E";
+        String instruction="R";
+        MarsRover marsRover =new MarsRover(0,0,"N");
+        marsRover.receiveInstruction(instruction);
+        assertEquals(exceptedX, marsRover.getLocation().x);
+        assertEquals(exceptedY, marsRover.getLocation().y);
+        assertEquals(exceptedDirection, marsRover.getLocation().Direction);
+    }
 }

@@ -50,6 +50,7 @@ public class MarsRover {
         this.location.Direction=dStr[(getDirectionIndex(this.location.Direction)+3)%4];
     }
 
+
     public Location getLocation() {
         return location;
     }
