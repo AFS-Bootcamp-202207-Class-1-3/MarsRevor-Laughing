@@ -136,4 +136,17 @@ class DemoTest {
         assertEquals(exceptedY, marsRover.getLocation().y);
         assertEquals(exceptedDirection, marsRover.getLocation().Direction);
     }
+
+    @Test
+    void should_return_0_0_S_when_given_0_0_W_L() {
+        int exceptedX = 0;
+        int exceptedY = 0;
+        String exceptedDirection = "S";
+        String instruction = "L";
+        MarsRover marsRover = new MarsRover(0, 0, "W");
+        marsRover.receiveInstruction(instruction);
+        assertEquals(exceptedX, marsRover.getLocation().x);
+        assertEquals(exceptedY, marsRover.getLocation().y);
+        assertEquals(exceptedDirection, marsRover.getLocation().Direction);
+    }
 }
